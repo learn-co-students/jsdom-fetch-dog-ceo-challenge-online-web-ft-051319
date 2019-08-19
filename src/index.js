@@ -34,33 +34,26 @@ function renderbreeds(json){
     const breedOptions = document.getElementById('breed-dropdown');
     console.log(breedOptions.options);
     const breedContainer = document.querySelector('#dog-breeds');
-
+    
     breedOptions.addEventListener('change', function(e){
-        breedContainer.deleteChild();
-        let filtered_breeds = allBreeds.filter(function(breed, letter){
+       
+        let filtered_breeds = allBreeds.filter(function(breed){
             return breed[0] === e.target.value
         });
 
         console.log(filtered_breeds);
-    
+    breedContainer.innerHTML = "";
         filtered_breeds.forEach(function(dog_breed){
             //console.log(dog_breed[0])
-          
+            
              
                     const createLi = document.createElement('li');
                     createLi.textContent = dog_breed;
+                   // breedContainer.appendChild(createLi);
+                   
                     breedContainer.appendChild(createLi);
-    
         })
     });
-        //console.log(breedOptions.options[i].value);
-       // allBreeds.forEach(function(dog_breed){
-            
-           // console.log(createLi.textContent[0]);
-          
-           // breedContainer.appendChild(createLi);
-       
-       // });
     
 }
 
