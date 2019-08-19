@@ -5,6 +5,14 @@ document.addEventListener('DOMContentLoaded',function(){
   fetchImages()
   fetchBreeds()
   filterFunction()
+  //Only loading the function here because if we run the script
+  //before the later part of the html, variables such as dropdown would be null
+  //with reference to the html, anything that comes after <script src=.....></script>
+  //will only be loaded after everything in this index.js file is loaded
+  //if we were to put this filterfunction outside of this block
+  //e.g. if we tried to getElementByID for dropdown outside of this block
+  //we would've gotten null. that's why we need to run the assignment
+  //only after all DOMContent has been loaded
 })
 
 function addImage(json){
